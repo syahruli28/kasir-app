@@ -1,0 +1,2 @@
+jalankan json-server --watch db.json --port=bebas
+npm start
