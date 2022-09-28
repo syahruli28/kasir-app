@@ -185,6 +185,57 @@
   ],
   "keranjangs": [
     {
+      "jumlah": 3,
+      "total_harga": 54000,
+      "product": {
+        "id": 4,
+        "kode": "K-04",
+        "nama": "Lontong Opor Ayam",
+        "harga": 18000,
+        "is_ready": true,
+        "gambar": "lontong-opor-ayam.jpg",
+        "category": {
+          "id": 1,
+          "nama": "Makanan"
+        }
+      },
+      "id": 1
+    },
+    {
+      "jumlah": 3,
+      "total_harga": 9000,
+      "product": {
+        "id": 14,
+        "kode": "K-014",
+        "nama": "Teh Hangat",
+        "harga": 3000,
+        "is_ready": true,
+        "gambar": "teh-hangat.jpg",
+        "category": {
+          "id": 2,
+          "nama": "Minuman"
+        }
+      },
+      "id": 2
+    },
+    {
+      "jumlah": 2,
+      "total_harga": 10000,
+      "product": {
+        "id": 9,
+        "kode": "K-09",
+        "nama": "Kentang Goreng",
+        "harga": 5000,
+        "is_ready": true,
+        "gambar": "kentang-goreng.jpg",
+        "category": {
+          "id": 3,
+          "nama": "Cemilan"
+        }
+      },
+      "id": 3
+    },
+    {
       "jumlah": 1,
       "total_harga": 10000,
       "product": {
@@ -199,68 +250,8 @@
           "nama": "Makanan"
         }
       },
-      "keterangan": "Bakso Kosongan",
-      "id": 1
-    },
-    {
-      "jumlah": 1,
-      "total_harga": 13000,
-      "product": {
-        "id": 5,
-        "kode": "K-05",
-        "nama": "Mie Goreng",
-        "harga": 13000,
-        "is_ready": true,
-        "gambar": "mie-goreng.jpg",
-        "category": {
-          "id": 1,
-          "nama": "Makanan"
-        }
-      },
-      "id": 2
+      "id": 4
     }
   ],
-  "pesanans": [
-    {
-      "total_bayar": 60000,
-      "menus": [
-        {
-          "jumlah": 2,
-          "total_harga": 32000,
-          "product": {
-            "id": 1,
-            "kode": "K-01",
-            "nama": "Sate Ayam",
-            "harga": 16000,
-            "is_ready": true,
-            "gambar": "sate-ayam.jpg",
-            "category": {
-              "id": 1,
-              "nama": "Makanan"
-            }
-          },
-          "keterangan": "Semuanya Pedas",
-          "id": 1
-        },
-        {
-          "jumlah": 2,
-          "total_harga": 28000,
-          "product": {
-            "id": 2,
-            "kode": "K-02",
-            "nama": "Nasi Goreng Telur",
-            "harga": 14000,
-            "is_ready": true,
-            "gambar": "nasi-goreng-telor.jpg",
-            "category": {
-              "id": 1,
-              "nama": "Makanan"
-            }
-          },
-          "id": 3
-        }
-      ],
-      "id": 1
-    }
-  ]
+  "pesanans": []
 }
