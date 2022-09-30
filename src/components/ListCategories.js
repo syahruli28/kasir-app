@@ -55,7 +55,7 @@ export default class ListCategories extends Component {
 
             {/* fetch data categorynya */}
             {categories && categories.map((category)=> (
-              <ListGroup.Item onClick={()=>changeCategory(category.nama)} className={categoriYangDipilih===category.nama && 'category-aktif'} style={{cursor: 'pointer'}}>
+              <ListGroup.Item onClick={()=>changeCategory(category.nama)} className={categoriYangDipilih===category.nama && 'category-aktif'} style={{cursor: 'pointer'}} key={category.id}>
                 <h5>
                   <Icon nama={category.nama} /> {category.nama}
                 </h5>
