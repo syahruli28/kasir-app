@@ -18,6 +18,21 @@ body {
   background-color: #22668A;
 }
 
+/* tampilkan hanya jika device punya height kurang dari 100px */
+@media only screen and (max-height: 1000px){
+  .hasil{
+    height: 350px;
+  }
+  .menu{
+    height: 500px;
+  }
+}
+
+.overflow-auto::-webkit-scrollbar{
+  display: none;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

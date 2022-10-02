@@ -30,29 +30,39 @@ export default class Home extends Component {
     })
 
     // untuk menampilkan data keranjang
+    this.getListKeranjang();
+
+  }
+
+
+  // agar data yang dimasukkan ke keranjang langsung update tanpa load ulang halaman
+  // componentDidUpdate(prevState) {
+  //   // cek apakah ada update pada state keranjangs
+  //   if(this.state.keranjangs !== prevState.keranjangs) {
+  //     // untuk menampilkan data keranjang
+  //     axios.get(API_URL+'keranjangs').then(res=>{
+  //       const keranjangs = res.data;
+  //       this.setState({keranjangs})
+  //     }).catch(error =>{ // jika error
+  //       console.log(error)
+  //     })
+  //   }
+  // }
+
+
+
+  // buat fungsi baru menggantikan componentDidUpdate (infinite loops) untuk ambil list keranjang
+  getListKeranjang = () => {
+    // untuk menampilkan data keranjang
     axios.get(API_URL+'keranjangs').then(res=>{
       const keranjangs = res.data;
       this.setState({keranjangs})
     }).catch(error =>{ // jika error
       console.log(error)
     })
+  }  
 
-  }
 
-
-  // agar data yang dimasukkan ke keranjang langsung update tanpa load ulang halaman
-  componentDidUpdate(prevState) {
-    // cek apakah ada update pada state keranjangs
-    if(this.state.keranjangs !== prevState.keranjangs) {
-      // untuk menampilkan data keranjang
-      axios.get(API_URL+'keranjangs').then(res=>{
-        const keranjangs = res.data;
-        this.setState({keranjangs})
-      }).catch(error =>{ // jika error
-        console.log(error)
-      })
-    }
-  }
 
 
   // buat fungsi yang akan mengganti categori
@@ -91,6 +101,7 @@ export default class Home extends Component {
 
         // masukan ke array keranjangs
         axios.post(API_URL+'keranjangs', keranjang).then(res=>{
+          this.getListKeranjang(); // ambil data keranjang
           // saat berhasil masukan data tampilkan success dengan sweetalert
           swal({
             title: "Berhasil masuk keranjang",
@@ -113,6 +124,7 @@ export default class Home extends Component {
           // input data yang sama, dan tambah jumlah dan harga
           // masukan ke array keranjangs
           axios.put(API_URL+'keranjangs/'+res.data[0].id, keranjang).then(res=>{
+            this.getListKeranjang(); // ambil data keranjang
             // saat berhasil masukan data tampilkan success dengan sweetalert
             swal({
               title: "Berhasil masuk keranjang",
@@ -140,21 +152,21 @@ export default class Home extends Component {
     const {menus, categoriYangDipilih, keranjangs} = this.state
 
     return (
-        <div className='mt-4'>
+        <div>
           <Container fluid>
             <Row>
               {/* mengirim arrow function dan state ke ListCategory */}
               <ListCategories changeCategory={this.changeCategory} categoriYangDipilih={categoriYangDipilih} />
-                <Col>
+                <Col className='mt-3'>
                   <h4><strong>Daftar Produk</strong></h4>
                   <hr />
-                  <Row>
+                  <Row className='overflow-auto menu'>
                     {menus && menus.map((menu) => (
                       <Menus key={menu.id} menu={menu} masukKeranjang={this.masukKeranjang} />
                     ))}
                   </Row>
                 </Col>
-              <Hasil keranjangs={keranjangs} {...this.props} />  
+              <Hasil keranjangs={keranjangs} getListKeranjang={this.getListKeranjang} {...this.props} />  
             </Row>
           </Container> 
         </div>

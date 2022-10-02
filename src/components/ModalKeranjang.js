@@ -4,7 +4,7 @@ import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { numberWithCommas } from '../utils/Utils';
 
-const ModalKeranjang = ({showModal, handleClose, keranjangDetail, jumlah, keterangan, tambah, kurang, changeHandler, handleSubmit}) => {
+const ModalKeranjang = ({showModal, handleClose, keranjangDetail, jumlah, keterangan, tambah, kurang, changeHandler, handleSubmit, totalHarga, hapusPesanan}) => {
     if(keranjangDetail) {
         return (
           <Modal show={showModal} onHide={handleClose} backdrop="static" keyboard={false}>
@@ -17,18 +17,18 @@ const ModalKeranjang = ({showModal, handleClose, keranjangDetail, jumlah, ketera
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Total harga : </Form.Label>
                         <p>
-                        <strong>Rp. {numberWithCommas(keranjangDetail.product.harga)}</strong>
+                        <strong>Rp. {numberWithCommas(totalHarga)}</strong>
                         </p>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Jumlah : </Form.Label><br />
-                        <Button variant="primary" size="sm" onClick={()=>tambah()}>
-                            <FontAwesomeIcon icon={faPlus}  />
-                        </Button>
-                        <strong className="mx-2">{jumlah}</strong>
                         <Button variant="primary" size="sm" onClick={()=>kurang()}>
                             <FontAwesomeIcon icon={faMinus}  />
+                        </Button>
+                        <strong className="mx-2">{jumlah}</strong>
+                        <Button variant="primary" size="sm" onClick={()=>tambah()}>
+                            <FontAwesomeIcon icon={faPlus}  />
                         </Button>
                     </Form.Group>
 
@@ -44,7 +44,7 @@ const ModalKeranjang = ({showModal, handleClose, keranjangDetail, jumlah, ketera
 
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="danger">
+                <Button variant="danger" onClick={()=>hapusPesanan(keranjangDetail.id)}>
                     <FontAwesomeIcon icon={faTrash}  /> Hapus Pesanan
                 </Button>
               </Modal.Footer>
