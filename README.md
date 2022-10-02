@@ -1,3 +1,11 @@
+# App View
+
+![hasil_web](https://user-images.githubusercontent.com/59794929/193433522-b8488455-0dc2-4548-8ee1-a90ec0e66c56.png)
+
+![hasil_mobile](https://user-images.githubusercontent.com/59794929/193433526-028717e6-6c04-48df-94a7-447be71f071c.png)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
